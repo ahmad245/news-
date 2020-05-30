@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AccountController!
+{% endblock %}
+
+{% block stylesheets %}
+	{{parent()}}
+	<style>
+
+	
+	</style>
+{% endblock %}
+
+{% block body %}
+
+	<div class="row">
+		<div class="col s12 ">
+			<div class="card">
+				<div class="row news-create-header">
+					<div class="col s12">
+						<h5 class=" ">
+							Mon Patametrs
+						</h5>
+					</div>
+				</div>
+				<div class="card-content">
+						{{form_start(form)}}
+						{{form_widget(form)}}
+						
+						<button name="" type="submit" id="submit" class="btn btn-primary mt_1" href="#" role="button">Update</button>
+
+						{{form_end(form)}}
+
+						
+                     
+						   <a href="{{path('password_update')}}" class="waves-effect waves-light btn-small">password update</a>
+					
+					
+						
+				</div>
+			</div>
+		</div>
+	</div>				
+					
+
+	{% endblock %}
+
+
+     
+     
+
+	{% block javascripts %}
+		{{parent()}}
+
+		<script>
+
+		
+		</script>
+	{% endblock %}

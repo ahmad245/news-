@@ -1,0 +1,166 @@
+html {
+    height: 100%;
+}
+body {
+    min-height:100%;
+    height:100%;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #15a5a6;
+}
+#top {
+    height:70%;
+    height: calc(100vh - 300px);
+    width: 100%;
+    padding:30px;
+}
+#top #logodaq {
+    width:100%;
+    height:100%;
+    background: url('../../../img/login/logoufmcp.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+#bottom {
+    background-color: #0d355c;
+    color: white;
+    text-align: center;
+    height: 300px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+#lib_form, #oubli_form {
+    font-weight: normal;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 45px;
+    padding-bottom: 27px;
+    font-size:1.5rem;
+}
+#lib_form strong {
+    font-weight:bolder;
+}
+#oubli_form {
+    padding: 0;
+}
+.row {
+    height: 100%;
+    margin: 0;
+}
+.banner-top, .banner-bottom {
+    display: none;
+    height: 10%;
+    width: 100%;
+    background-color: #d21242;
+}
+.banner-bottom {
+    position: absolute;
+    bottom: 0;
+}
+.div-form {
+    width: 400px;
+    float: left;
+    margin-left: 15%;
+    color: #fff;
+}
+.icon-form {
+    font-size: 1.5rem !important;
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: 22px;
+    padding-left: 30px;
+}
+.field {
+    display: inline-block;
+    width: 100%;
+}
+.field .input-field:first-child {
+    margin-right: 8vw;
+    margin-left: -1vw;
+}
+.input-field {
+    width: 300px;
+    margin: 0 auto;
+    display: inline-block;
+}
+.input-field label {
+    text-align: left;
+    line-height: 25px;
+}
+.input-field input {
+    color: #0d355c;
+    font-size: 18px;
+    padding: 0 10px;
+    background-color: #fff;
+    transition: all 0.3s;
+}
+.input-field input:focus {
+    border: none !important;
+    box-shadow: 0 -9px 2px -6px #e67f22 inset !important
+}
+.input-field input.valid {
+    border: none !important;
+    box-shadow: 0 -9px 6px -6px #4CAF50 inset !important
+}
+input::-moz-placeholder {
+    color: #0d355c !important;
+    opacity: 1 !important;
+    font-size: 18px !important;
+}
+input:focus::-moz-placeholder {
+    opacity: 0.6 !important;
+}
+input:-webkit-autofill {
+    -webkit-text-fill-color: #0d355c !important;
+    -webkit-box-shadow: 0 0 0px 1000px #fff inset !important;
+}
+.important {
+    color: #fff;
+    font-weight: bolder;
+    opacity:1;
+}
+a.important {
+    transition: opacity 0.2s;
+}
+a.important:hover{
+    opacity:0.6;
+}
+#_submit {
+    display: block;
+    width: 250px;
+    height: 100%;
+    vertical-align: middle;
+    line-height: 45px;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.4rem;
+    transition: all 0.2s;
+    background-color: #e67f22;
+    margin: 25px auto 0 auto;
+    font-weight: bold;
+}
+#_submit:hover {
+    background-color: #eb984e;
+}
+
+@media screen and (max-width: 800px) {
+    .input-field {
+        width: 50%;
+        margin: 0 !important;
+    }
+    #top {
+        height: 65%;
+        height: calc(100% - 350px);
+    }
+    #bottom {
+        height: 350px;
+    }
+    #lib_form {
+        padding-top: 30px;
+    }
+    #lib_form, #oubli_form {
+        font-size: 1.3rem;
+    }
+}

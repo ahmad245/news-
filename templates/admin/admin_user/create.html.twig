@@ -1,0 +1,81 @@
+{% extends 'admin/base.html.twig' %}
+{# {% form_theme form _self %} #}
+{% block title %}Hello AdminAccountController!
+{% endblock %}
+
+{% block stylesheets %}
+	{{parent()}}
+	{# <link rel="stylesheet" href="/account/login.css"> #}
+
+	<style></style>
+{% endblock %}
+
+{% block body %}
+
+	<div class="row">
+		<div class="col s12 ">
+			<div class="card">
+				<div class="row news-create-header">
+					<div class="col s12">
+						<h5 class=" ">
+							S'inscrire
+						</h5>
+					</div>
+				</div>
+				<div class="card-content">
+	{{form_start(form)}}
+	{{form_widget(form)}}
+
+	<button name="" type="submit" id="submit" class="btn btn-primary" href="#" role="button">Register</button>
+
+	{{form_end(form)}}
+		</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
+{# {% block checkbox_row -%}
+    <div class="row {% if not valid %} has-error{% endif %}">
+        {{- form_widget(form) -}}
+        {{- form_label(form) -}}
+        {{- form_errors(form) -}}
+    </div>
+{%- endblock checkbox_row %}
+
+{% block checkbox_widget -%}
+{%- endblock checkbox_widget %} #}
+   {# Checkbox label is raw here #}
+{# {%- block checkbox_label -%}
+    {% if label is not same as(false) -%}
+        {% if not compound -%}
+            {% set label_attr = label_attr|merge({'for': id}) %}
+        {%- endif -%}
+        {% if required -%}
+            {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' required')|trim}) %}
+        {%- endif -%}
+        {% if label is empty -%}
+            {%- if label_format is not empty -%}
+                {% set label = label_format|replace({
+                '%name%': name,
+                '%id%': id,
+                }) %}
+            {%- else -%}
+                {% set label = name|humanize %}
+            {%- endif -%}
+        {%- endif -%}
+         <p>
+        <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
+              
+               <input type="checkbox" class="filled-in"{{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+              <span> {{ translation_domain is same as(false) ? label|raw : label|trans({}, translation_domain)|raw }} </span>
+        </label>
+        </p>
+    {%- endif -%}
+{%- endblock -%} #}
+
+{% block javascripts %}
+	{{parent()}}
+
+	<script></script>
+{% endblock %}

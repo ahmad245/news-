@@ -1,0 +1,143 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Hello AdminUserController!{% endblock %}
+
+{% block body %}
+<style>
+  {{parent()}}
+  .table-header{
+    display:flex;
+    align-items:center;
+  }
+  .actions{
+     display:flex;
+     justify-content:space-between
+    
+  }
+  .flex_grow{
+    flex-grow: 1;
+  }
+  .table-title{
+    margin-left:1rem;
+  }
+
+</style>
+ 
+ {# <div class="row">
+    <a href="{{path('admin_user_add')}}" class="waves-effect waves-light btn"><i class="material-icons left">add</i>Create User</a>
+ </div> #}
+ <div class="row">
+  <div id="admin" class="col s12">
+    <div class="card material-table">
+      <div class="table-header">
+       
+        <div class="actions ">
+           <span class="table-title flow-text">Gérer Les Utilisateurs </span>
+           
+           
+         </div>
+         <span class="flex_grow"></span>
+          <a  href="{{path('admin_user_add')}}" class=" waves-effect btn-flat nopadding"><i class="material-icons">person_add</i></a>
+        <div class="input-field ">
+          <input placeholder="Search" id="first_name" type="text" class="validate">
+          
+        </div>
+
+      
+      </div>
+<table id="table" class="highlight centered responsive-table">
+        <thead>
+          <tr>
+              <th><i class="material-icons">arrow_drop_down</i>Prénom</th>
+              <th><i class="material-icons">arrow_drop_down</i>Nom </th>
+              <th><i class="material-icons">arrow_drop_down</i>Email </th>
+              <th><i class="material-icons">arrow_drop_down</i>Activé</th>
+              <th><i class="material-icons">arrow_drop_down</i>Les rôles</th>
+              <th colspan="2">Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+        {% for user in pagination.getData() %}
+          <tr>
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.enabled ? 'true' : 'false'}}</td>
+            <td>
+              {% for role in user.userRoles %}
+                  {{role}}
+              {% endfor %}
+            </td>
+            <td>
+              <a href="{{path('admin_user_edit',{id:user.id})}}" class="btn-floating  waves-effect waves-light "><i class="material-icons">edit</i></a>
+               {# <a class="waves-effect waves-light btn-small center"><i class="material-icons left">edit</i></a> #}
+            </td>
+            <td>
+             <a class="btn-floating  waves-effect waves-light red "><i class="material-icons">delete</i></a>
+            </td>
+          </tr>
+        {% endfor %}
+         
+          
+        </tbody>
+      </table>
+      <div class="row">
+            <div class="col s12">
+               {{pagination.display()}}
+               </div>
+           </div>
+
+          </div>
+  </div>
+</div>
+     
+{% endblock %}
+
+{% block javascripts %}
+		{{parent()}}
+
+  <script>
+    const table = document.getElementById('table');
+  
+
+let log = console.log;
+let up='arrow_drop_up';
+let down='arrow_drop_down';
+const sortTableByColumn = (table, column, asc = true) => {
+    let sort = asc ? 1 : -1;
+    let rows = Array.from(table.tBodies[0].querySelectorAll(`tr `));
+
+    rows.sort((a, b) => {
+        let aCell = a.querySelector(`td:nth-child(${column})`).textContent.trim();
+        let bCell = b.querySelector(`td:nth-child(${column})`).textContent.trim();
+        return aCell > bCell ? 1 * sort : -1 * sort;
+    });
+
+    table.tBodies[0].querySelectorAll(`tr `).forEach(element => {
+        table.tBodies[0].removeChild(element);
+    });
+
+    table.tBodies[0].append(...rows);
+}
+
+let thead = table.querySelectorAll('thead tr th');
+thead.forEach((el, index) => {
+    el.addEventListener('click', (e) => {
+      
+        let isAsc=el.querySelector('i').textContent=='arrow_drop_down' ? true :false;
+        sortTableByColumn(table, index + 1, isAsc);
+
+        table.querySelectorAll('thead tr th i').forEach((i)=>{
+            if (i.textContent == 'arrow_drop_down') {
+                i.textContent = 'arrow_drop_up';
+            } else {
+                i.textContent= 'arrow_drop_down';
+            }
+        })
+
+    });
+
+})
+  </script>
+{% endblock %}

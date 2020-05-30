@@ -1,0 +1,102 @@
+.daqndrop {
+    position: relative;
+    height:100%;
+}
+.dropzone {
+    position: relative;
+    width:100%;
+    height:100%;
+    overflow: hidden;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    border: none;
+    z-index:1;
+}
+.dropzone .overlay {
+    z-index:2;
+    background-color: rgba(255,255,255,0.75);
+}
+.dropzone .dragging {
+    z-index:1;
+}
+.dropzone .overlay,
+.dropzone .dragging {
+    width:100%;
+    height:100%;
+    opacity:0;
+    position: absolute;
+    display: flex;
+    cursor: default;
+    /*background-color: rgba(255,255,255,0.6);*/
+    transition: opacity 0.2s;
+}
+.dropzone .overlay:not(.multiple) {
+    cursor: pointer;
+}
+.dropzone.show:not(.dragging):not(.filled) .overlay,
+.dropzone:hover:not(.ondrop) .overlay,
+.dropzone.dragging:not(.ondrop) .dragging {
+    opacity:1;
+}
+.dropzone.dragging.over:not(.ondrop) {
+    border: 4px solid #f0f0f0;
+}
+.dropzone .dragging {
+    box-sizing: border-box;
+}
+.dropzone .icon {
+    text-align: center;
+    display: block;
+}
+.dropzone .icon::before {
+    font-size: 50px;
+}
+.dropzone.min .icon::before {
+    font-size: 30px;
+}
+.dropzone .icon-cancel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index:1;
+}
+.dropzone .icon-cancel::before {
+    font-size: 40px;
+}
+.dropzone .block-lib {
+    margin:auto;
+    font-weight: bold;
+    z-index: 1;
+}
+.dropzone .overlay.multiple .block-lib {
+    cursor: pointer;
+}
+.dropzone .lib {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 18px;
+}
+.dropzone.min .lib {
+    font-size: 15px;
+}
+.daqndrop .uploaded_ok {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    text-align: center;
+    top: 50%;
+    transition: opacity .2s;
+    transform: translateY(-50%);
+}
+.daqndrop .uploaded_ok .icon::before {
+    font-size: 45px;
+    vertical-align: middle;
+}
+.daqndrop .uploaded_ok.min .icon::before {
+    font-size:30px;
+}
+.daqndrop:hover .uploaded_ok {
+    opacity: 0;
+}

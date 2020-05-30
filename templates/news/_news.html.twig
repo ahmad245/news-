@@ -1,0 +1,95 @@
+<div class="card-panel hoverable news ">
+	<div class="row news-header ">
+
+		<div class=" flext_header  ">
+	     	<small >
+		     	<a href="{{path('filter_by_date',{id:news.createdAt|date('Y-m-d')})}}" class="card-date">
+			     		<i class="material-icons ">date_range</i>{{news.createdAt|format_datetime('full','none',locale='fr')}}
+				</a>
+			</small>
+			<h6 class="card-title ">
+				{# <i class="material-icons ">title</i> #}
+				{{news.title}}
+			</h6>
+			
+
+			
+		</div>
+		<div class="news-header_space">
+		</div>
+		<div class=" right-align">
+
+			<p class="right-align">
+				{% for category in news.categories %}
+					<div class="chip">
+						<a href="{{path('filter_by_category',{id:category.id})}}">
+
+							{{category.name}}
+
+						</a>
+					</div>
+				{% endfor %}
+			</p>
+		</div>
+    </div>
+  
+	
+	<div class="row news-body">
+  <div class=" news-action">
+		
+		{# <div class="col s6">
+			<a href="{{path('filter_by_user',{id:news.user.id})}}">
+				<strong class="email">
+					<i class="material-icons">mood</i> {{news.user.email}}
+				</strong>
+			</a>
+		</div> #}
+		
+		
+			{% if is_granted('edit',news) %}
+
+				<a href="{{path('news_edit',{id:news.id})}}" class="btn-floating btn-floating_bg waves-effect waves-light ">
+					<i class="material-icons">edit</i>
+				</a>
+
+			{% endif %}
+			{% if is_granted('delete',news) %}
+				<a href="#{{news.id}}" class="btn-floating  waves-effect waves-light red modal-trigger">
+					<i class="material-icons">delete</i>
+				</a>
+			{% endif %}
+
+
+		
+
+	</div>
+		<div class="col  s12">
+		
+				<div class="card-content">
+				   <p>{{news.content|raw}}</p>
+				</div>
+				
+		</div>
+			
+
+
+
+	</div>
+
+</div>
+
+
+<a id="modal-delete" class="waves-effect waves-light btn modal-trigger hide" href="#modal1">Modal</a>
+
+<!-- Modal Structure -->
+<div id="{{news.id}}" class="modal">
+	<div class="modal-content">
+		<h4><i class="material-icons ">warning</i> Delete News</h4>
+		<p>Êtes-vous sûr(e) de vouloir supprimer cette actualité ({{news.title}}) ? 
+		</p>
+	</div>
+	<div class="modal-footer">
+		<a id="accept-delete" href="{{path('news_delete',{id:news.id})}}" class="modal-close waves-effect waves-green teal btn">OK</a>
+		<a id="ignore-accept" class="modal-close waves-effect waves-green btn gray-color">ANNULER</a>
+	</div>
+</div>

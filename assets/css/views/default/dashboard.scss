@@ -1,0 +1,180 @@
+@import "../../variable";
+
+.row {
+	display: inline-block;
+	width:100%;
+}
+.col-1 {
+	padding: 0;
+	display: inline-block;
+}
+dl {
+	margin: 0 0 13px 0;
+
+	&.altColor {
+		dt {
+			background: $couleur-alt;
+		}
+
+		dd {
+			background: #f38dbb;
+		}
+	}
+
+	&.grey {
+		dt {
+			background-color: #969696;
+		}
+
+		dd {
+			background-color: #c2c2c2;
+		}
+	}
+}
+dt {
+	background: $couleur-princ;
+	color: #FFFFFF;
+	text-transform: uppercase;
+	padding: 3px 4px;
+	vertical-align: middle;
+	height: 40px;
+	line-height: 35px;
+	font-size: 18px;
+	/*min-width: 230px;*/
+	text-align: center;
+	overflow: hidden;
+
+	&.altColor {
+		background: $couleur-alt;
+	}
+}
+dd {
+	margin: 0;
+
+	&.altColor {
+		background: $couleur-alt;
+	}
+}
+.dashboard_cpt, .dashboard_grp, .dashboard_graph {
+	dd {
+		font-family: "Arial Black", Arial, Helvetica;
+		background-color: $couleur-princ;
+		color: #FFF;
+		font-weight: bold;
+		font-size: 36px;
+		height: 61px;
+		line-height: 55px;
+		transition: background-color 0.3s;
+	}
+}
+
+.dashboard_tbl {
+	dd {
+		height: 150px;
+		overflow: auto;
+		background-color: #fff;
+	}
+
+	dt {
+		line-height: 35px;
+		font-size: 18px;
+		color: #FFF;
+		text-align: left;
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+}
+
+.dashboard_graph {
+	dt {
+		
+	}
+	
+	dd {
+		background: #FFF;
+	}
+}
+
+.dashboard_grp {
+	dd:hover {
+		cursor: pointer;
+		background-color: #ececec;
+	}
+
+	dt {
+		line-height:40px;
+	}
+
+	.field {
+		margin-bottom: 10px;
+	}
+
+	dd {
+		font-size: 24px;
+
+		.title {
+			position: absolute;
+			left: 25px;
+			color: #7c7c7c;
+			font-size: 20px;
+		}
+
+		.value {
+			position: absolute;
+			right: 25px;
+			color: #23a4a4;
+		}
+	}
+}
+
+dt.vertical-center {
+	line-height: 42px;
+}
+.vertical-center > span {
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 1.2;
+}
+.dashboard_cpt {
+	dd {
+		text-align: center;
+		color: #FFF;
+		background-color: #6dc8c8;
+		/*min-width: 230px;*/
+
+		.grey {
+			color: #7c7c7c;
+			font-size: 26px;
+			float: right;
+			margin-right: 15px;
+		}
+	}
+}
+
+#dossiers_remu {
+	max-height: 194px;
+	overflow-y: auto;
+
+	.tablesorter {
+		min-width:100% !important;
+		display: table;
+	}
+}
+
+#chart_inscrits {
+	height:250px;
+}
+#chart_connexions {
+	height:270px;
+}
+
+/*@media screen and (max-width: 1836px) {
+	dt {
+		font-size: 14px;
+	}
+}
+@media screen and (max-width: 1658px) {
+	dt {
+		font-size: 13.2px;
+	}
+}*/

@@ -1,0 +1,46 @@
+/*---------------------------------- USED WHEN HOVER ELEMENT from Piou-piou/RibsAdminBundle ------------------------------------------------*/
+/*properties to add background transition to an element
+	- $bg => define background color of the element wich is not hovered
+	- $bg-hover => define background color of the element when it is hovered
+	- $pos-bg => define the position of the background (could be top, right, bottom, left and center)
+	- $pos-bg-hover => define the position of the background when hover (could be top, right, bottom, left and center)
+	- $time => define the time of the animation
+*/
+@mixin hbgtranslate($bg, $bg-hover, $pos-bg, $pos-bg-hover, $time: 0.3s) {
+	background: linear-gradient($bg, $bg) no-repeat $pos-bg,
+	linear-gradient($bg-hover, $bg-hover) no-repeat $pos-bg-hover;
+
+	@if ($pos-bg-hover == left) {
+		background-size: 100% 100%, 0% 100%;
+	} @else if ($pos-bg-hover == right) {
+		background-size: 100% 100%, 0% 100%;
+	} @else if ($pos-bg-hover == bottom) {
+		background-size: 100% 100%, 100% 0%;
+	} @else if ($pos-bg-hover == top) {
+		background-size: 100% 100%, 100% 0%;
+	}
+
+	background-color: $bg;
+	transition: $time all ease;
+	cursor: pointer;
+
+	&:hover {
+		@if ($pos-bg-hover == left) {
+			background-size: 0% 100%, 100% 100%;
+		} @else if ($pos-bg-hover == right) {
+			background-size: 0% 100%, 100% 100%;
+		} @else if ($pos-bg-hover == bottom) {
+			background-size: 100% 0%, 100% 100%;
+		} @else if ($pos-bg-hover == top) {
+			background-size: 100% 0%, 100% 100%;
+		}
+	}
+}
+
+@mixin box-shadow-material($hover: false) {
+	@if ($hover == false) {
+		box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+	} @else {
+		box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
+	}
+}

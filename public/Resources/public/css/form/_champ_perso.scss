@@ -1,0 +1,18 @@
+.edition-mode-editor {
+	border: solid rgba(0, 0, 0, 0.1) 0.1px;
+	margin: 1em;
+	padding: 1em 0;
+	box-shadow: 0px 4px 5px -1px #656565;
+}
+
+.edition-mode-cat-add {
+	h2 {
+		background: #aeb3bd;
+	}
+}
+
+.edition-mode-cat-add:hover {
+	h2 {
+		background: #eaeaea;
+	}
+}

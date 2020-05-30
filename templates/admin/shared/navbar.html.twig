@@ -1,0 +1,44 @@
+		<!-- Dropdown Structure -->
+	{% if app.user %}
+		<ul id="dropdown1" class="dropdown-content">
+		<li><a href="{{path('my_profile_news',{'id':app.user.id})}}">Mon Actualités</a></li>
+		<li><a href="{{path('my_profile_edit')}}">Mon Paramètres</a></li>
+		<li class="divider"></li>
+		<li><a href="{{path('news_add')}}">Crée Actualités</a></li>
+		</ul>
+		   {% endif %}
+		   <div class="navbar-fixed">
+		<nav>
+			<div class="nav-wrapper teal lighten-2">
+				<a href="{{path('home')}}" class="brand-logo"> <i class="material-icons">note</i>Actualités</a>
+
+
+				<ul class="right hide-on-med-and-down">
+					{% if app.user %}
+                         <li>
+							<a href="{{path('notification_all')}}">Notification<span class="new badge" data-badge-caption="new" id="notification-count"></span></a>
+							
+						</li>
+						<li>
+							<a class="dropdown-trigger" href="#!" data-target="dropdown1">{{app.user.username}}<i class="material-icons right">arrow_drop_down</i></a>
+						</li>
+					
+						<li>
+							<a href="{{path('admin_account_logout')}}">Se déconnecter</a>
+						</li>
+					{% else %}
+						<li>
+							<a href="{{path('account_register')}}">S'inscrire</a>
+						</li>
+						<li>
+							<a href="{{path('admin_account_login')}}">Se connecter</a>
+						</li>
+					{% endif %}
+
+
+					<!-- Dropdown Trigger -->
+
+				</ul>
+			</div>
+		</nav>
+		</div>

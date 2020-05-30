@@ -1,0 +1,138 @@
+.long-text {
+  display: none;
+}
+.nav_bg,
+.btn-floating_bg {
+  background-color: #02abac !important;
+}
+.postAdd {
+  position: fixed;
+  top: 80vh;
+  right: 2rem;
+}
+.brand-logo {
+  margin-left: 1rem;
+}
+.news-header {
+  padding: 0 !important;
+  background-color: #02abac;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  color: #fff;
+
+  background-color: #3daabf;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.news {
+}
+.news-header_space {
+  flex-grow: 1;
+}
+.gray-color {
+  background-color: #464c58;
+}
+.news-body {
+  position: relative;
+  padding: 0 15px 15px 15px;
+  margin: 0;
+}
+.news-action {
+  padding: 0 15px 0 15px;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  right: 0.5rem;
+  visibility: hidden;
+  display: none;
+/* 
+  opacity: 0; */
+  transition: all 0.2s ease;
+}
+.news-action .email {
+  display: flex;
+  align-items: center;
+
+  font-size: 1.6rem;
+}
+.news-action .email i {
+  margin-right: 0.5rem;
+}
+
+.news-create-header {
+  padding: 0 !important;
+  margin: 0;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  color: #fff;
+  background-color: #464c58;
+  text-transform: uppercase;
+}
+.card-panel {
+  padding: 0;
+}
+.card-date {
+  font-size: 1rem;
+  margin: 0;
+  color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+}
+.card-date i {
+  margin-right: 0.5rem;
+  padding: 0 0 0.5rem 0;
+}
+.card-title {
+  margin: 0 !important;
+}
+.show-more-button {
+  color: #999999;
+  cursor: pointer;
+}
+.successTrigger .modal-action {
+  display: flex;
+  justify-content: center;
+}
+.successTrigger i {
+  font-size: 2rem;
+  color: #02abac;
+}
+
+.checkbox div {
+  margin-left: 0.7rem !important;
+}
+.flext_header {
+  margin-left: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+.chip {
+  margin-bottom: 0 !important;
+}
+.card-panel:hover .news-action {
+  visibility: visible;
+  display: block;
+
+}
+iframe {
+  width: 100%;
+}
+video {
+  width: 100%;
+}
+img.responsive-img,
+video.responsive-video {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.dropdown-content {
+  z-index: 1000000000;
+}

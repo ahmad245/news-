@@ -1,0 +1,107 @@
+form {
+	fieldset {
+		box-sizing: border-box;
+		border: none;
+		padding: 0 0 30px 0;
+		margin: 0;
+		width: 100%;
+	}
+	
+	label {
+		color: $form-couleur-label;
+		margin-bottom: 2px;
+		font-size: 1.2em;
+		font-size: 13.2px;
+
+		&[for] {
+			cursor: pointer;
+		}
+
+		&.field-height {
+			line-height: 27px;
+		}
+
+		&.required:after {
+			content: " *";
+		}
+	}
+
+	//input:not(.select2-search__field) {
+	input:not([type=checkbox]):not([type=radio]) {
+		line-height: 40px;
+	}
+
+	//input:not(.select2-search__field):not(.tablesorter-filter), textarea {
+	input, textarea {
+		width: 100%;
+		border: none;
+		color: $form-input-couleur;
+		background-color: $form-input-couleur-fond;
+		height: 40px;
+		padding: 0 14px;
+		outline: none;
+		transition: background 0.2s ease;
+		font-size: 13.2px;
+		background: linear-gradient($form-input-couleur-fond, $form-input-couleur-fond) no-repeat bottom,
+		linear-gradient($form-input-border-focus, $form-input-border-focus) no-repeat bottom;
+		background-size: 100% 100%, 100% 0%;
+
+		&[type=number] {
+			padding-right: 0;
+		}
+
+		&:not(:read-only):focus {
+			background-color: $form-input-couleur-fond-focus;
+			background-size: 100% 0%, 100% 2px;
+
+			&:invalid {
+				background: linear-gradient($form-input-couleur-fond-focus, $form-input-couleur-fond-focus) no-repeat top,
+				linear-gradient($form-input-border-invalid, $form-input-border-invalid) no-repeat bottom;
+				background-size: 100% 0%, 100% 2px;
+			}
+		}
+
+		&.invalid {
+			background: linear-gradient($form-input-couleur-fond, $form-input-couleur-fond) no-repeat top,
+			linear-gradient($form-input-border-invalid, $form-input-border-invalid) no-repeat bottom;
+			background-size: 100% 95%, 100% 2px;
+		}
+
+		&.readonly {
+			box-shadow: none;
+			background-color: $form-input-couleur-fond;
+			cursor: default !important;
+		}
+	}
+
+	textarea {
+		padding: 10px 15px;
+	}
+
+	.select2.invalid > span > span {
+		background: linear-gradient($form-input-couleur-fond, $form-input-couleur-fond) no-repeat top,
+		linear-gradient($form-input-border-invalid, $form-input-border-invalid) no-repeat bottom;
+		background-size: 100% 95%, 100% 2px;
+	}
+
+	.small-inputs {
+		input {
+			height: 26px !important;
+			line-height: 26px !important;
+		}
+
+		.input-date,.small-inputs .input-date-time, .small-inputs .input-time {
+			padding-left: 2px;
+			padding-right: 2px;
+			background-position: calc(100% - 2px)
+		}
+
+		.input-date {
+			width: 98px;
+		}
+
+		.input-time {
+			width: 70px;
+		}
+	}
+}

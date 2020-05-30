@@ -1,0 +1,177 @@
+@font-face {
+  font-family: 'arrows';
+  src:  url('../../../../../../fonts/arrows.eot?vb5qrg');
+  src:  url('../../../../../../fonts/arrows.eot?vb5qrg#iefix') format('embedded-opentype'),
+        url('../../../../../../fonts/arrows.ttf?vb5qrg') format('truetype'),
+        url('../../../../../../fonts/arrows.woff?vb5qrg') format('woff'),
+        url('../../../../../../fonts/arrows.svg?vb5qrg#arrows') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="tablesorter-header"]:before,
+[class*="tablesorter-header"]:before {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'arrows' !important;
+  speak: none;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+table.tablesorter {
+    margin-bottom: 0;
+    margin-top: 0;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#table_div { visibility: hidden; }
+#table_div.loaded { visibility: visible; }
+
+table.tablesorter tr {
+    height: 40px;
+}
+
+    table.tablesorter tr:nth-child(even),
+    table.tablesorter tr.even{
+        background-color: #EAEAEA;
+    }
+
+    table.tablesorter tr.odd{
+        background-color: transparent;
+    }
+
+table.tablesorter td, table.tablesorter th {
+    border-left: 1px solid #A6A6A6;
+    border-right: 1px solid #A6A6A6;
+    border-bottom: none;
+    padding: 0 15px;
+}
+
+table.tablesorter th {
+    border-top: none;
+}
+
+table.tablesorter td:first-child {
+    border-left: none;
+}
+
+table.tablesorter th:first-child {
+    border-left: none;
+}
+
+table.tablesorter th:last-child,
+table.tablesorter td:last-child {
+    border-right: none;
+}
+
+table.tablesorter td {
+    background-color: transparent;
+    font-size: 13.2px;
+    color: #464c58;
+}
+
+table.tablesorter th {
+    color: #fff;
+    border-color: #fff;
+    font-size: 15px;
+    background-color: #A6A6A6;
+    height: 40px;
+    line-height: 40px;
+    font-weight: 400;
+}
+/*table.tablesorter th span {
+    color: #fff !important;
+}*/
+
+table.tablesorter:not(.no-column-selector) thead tr:nth-child(n+3) th,
+table.tablesorter.no-column-selector thead tr:nth-child(n+2) th {
+    border-top: 1px solid #fff;
+}
+
+table th.tablesorter-header:not(.sorter-false) {
+    cursor: pointer;
+}
+
+table.tablesorter th.tablesorter-headerAsc:before,
+table.tablesorter th.tablesorter-headerDesc:before {
+    float:right;
+    line-height: 28px;
+}
+table.tablesorter th.tablesorter-headerAsc:before {
+    content: "\edc4";
+    float: right;
+}
+table.tablesorter th.tablesorter-headerDesc:before {
+    content: "\edc6";
+    float: right;
+}
+
+table.tablesorter tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.tablesorter-header-inner {
+    line-height: 1.2;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+#cnt_suivi table.tablesorter td {
+    border-color: #CCC;
+}
+
+.show-selector {
+    vertical-align: middle;
+}
+.columnSelector {
+    display: none;
+    position: absolute;
+    overflow: hidden;
+    right: 0;
+    top:35px;
+    width: 180px;
+    height: auto;
+    margin: 4px 0 0;
+    padding: 0 10px;
+    z-index: 4;
+    border: 1px solid #a6a6a6;
+    background-color: #fff;
+    color: #464c58;
+    text-align: left;
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+    -moz-box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+}
+.columnSelectorCell {
+    width: 100%;
+}
+.columnSelectorCell input.labelauty + label:not(.lib) {
+    display: inline-block;
+    line-height: 14px;
+}
+.columnSelectorCell label.lib {
+    line-height: 40px;
+    margin-left: 5px;
+}
+table.tablesorter tr.column-selector .columnSelector div.row_selector {
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+    height:35px;
+    line-height:40px;
+}
+table.tablesorter tr.column-selector .columnSelector div.row_selector input.labelauty + label {
+    display: inline-block;
+    line-height: 10px;
+    margin: 4px 0;
+}

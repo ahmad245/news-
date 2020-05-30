@@ -1,0 +1,9 @@
+/*---------------------------------- USED WHEN HOVER ELEMENT from Piou-piou/RibsAdminBundle ------------------------------------------------*/
+/*properties to add background transition to an element
+	- $bg => define background color of the element wich is not hovered
+	- $bg-hover => define background color of the element when it is hovered
+	- $pos-bg => define the position of the background (could be top, right, bottom, left and center)
+	- $pos-bg-hover => define the position of the background when hover (could be top, right, bottom, left and center)
+	- $time => define the time of the animation
+*/
+/*# sourceMappingURL=mixins.css.map */

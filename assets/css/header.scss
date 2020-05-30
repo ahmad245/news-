@@ -1,0 +1,134 @@
+header.general {
+	background-color: $couleur-princ;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 60px;
+	z-index: 50;
+	-webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
+	-moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
+	
+	#title_bar {
+		position: absolute;
+		top: 0;
+		left: 215px;
+		right: 308px;
+		color: #FFF;
+		font-size: 22.5px;
+		text-transform: uppercase;
+		height: 60px;
+		line-height: 60px;
+		vertical-align: middle;
+		overflow: hidden;
+		
+		> span {
+			display: inline-block;
+			vertical-align: middle;
+			margin-left: 70px;
+			line-height: 1.3;
+			max-height: 60px;
+			overflow: hidden;
+		}
+	}
+	
+	#top_logout {
+		position: absolute;
+		top: 17px;
+		right: 17px;
+		color: #FFF;
+		font-size: 26px;
+		z-index: 10;
+		transition: opacity .2s;
+	}
+	#top_logout:hover, #infos_compte a[class^=icon-]:hover {
+		opacity: 0.6;
+	}
+	
+	#top_logo {
+		position: absolute;
+		top: 5px;
+		height: 50px;
+		left: 0;
+		width: 240px;
+		text-align: center;
+		
+		img {
+			height: 100%;
+		}
+	}
+
+	#top_buttons {
+		position: absolute;
+		top: 0;
+		left: 270px;
+		width: 300px;
+		line-height: 60px;
+		height: 60px;
+		color: #FFF;
+		text-align: left;
+		vertical-align: middle;
+
+		span {
+			display: inline-block;
+			line-height: 1;
+			vertical-align: middle;
+		}
+
+		a {
+			color: #FFF;
+
+			&[class^=icon-] {
+				font-size: 16px;
+				transition: opacity .2s;
+			}
+		}
+	}
+	
+	#infos_compte {
+		position: absolute;
+		display: inline-block;
+		top: 0;
+		//left: 240px;
+		right: 60px;
+		width: auto;
+		height: 60px;
+		color: #FFF;
+		text-align: right;
+		line-height: 60px;
+		vertical-align: middle;
+		white-space: nowrap;
+		
+		> span {
+			display: inline-block;
+			line-height: 1.4;
+			vertical-align: middle;
+		}
+		
+		a {
+			color: #FFF;
+			
+			&[class^=icon-] {
+				font-size: 16px;
+				transition: opacity .2s;
+			}
+		}
+		
+		/*.top-part, .bottom-part {
+			display: inline-block;
+			width: 100%;
+			height: 30px;
+			line-height: 30px;
+			vertical-align: middle;
+		}*/
+	}
+	
+	#infos_compte {
+		span {
+			display: inline-block;
+			vertical-align: middle;
+		}
+		
+	}
+}

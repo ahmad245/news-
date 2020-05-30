@@ -1,0 +1,246 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Hello AdminUserController!{% endblock %}
+
+{% block body %}
+<style>
+  {{parent()}}
+    .table-header{
+    display:flex;
+    align-items:center;
+  }
+  .actions{
+     display:flex;
+     justify-content:space-between
+    
+  }
+  .flex_grow{
+    flex-grow: 1;
+  }
+  .table-title{
+    margin-left:1rem;
+  }
+  .mr_1{
+    margin-right:1rem;
+  }
+  .circle_image{
+    border:2px solid #26a69a;
+        border-radius: 50%;
+        
+  }
+  .material-placeholder{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+  .eye{
+    font-size:35px;
+    color:#3daabf;
+  }
+  .true{
+    color:#26a69a;
+  }
+  .false{
+    color:#F44336; 
+  }
+ thead {
+  border-bottom: 2px solid #9e9e9e !important;
+      cursor: pointer;
+     
+}
+thead tr  th {
+ font-size: 14.2px;
+      line-height: 1.5;
+  
+}
+</style>
+ 
+ {# <div class="row">
+    <a href="{{path('news_add',{type:'admin'})}}" class="waves-effect waves-light btn"><i class="material-icons left">add</i>Create News</a>
+ </div> #}
+
+  <div class="row">
+  <div id="admin" class="col s12">
+    <div class="card material-table">
+      <div class="table-header">
+       
+        <div class="actions ">
+           <span class="table-title flow-text">Gérer Les Actualités </span>
+           
+           
+         </div>
+         <span class="flex_grow"></span>
+         <a href="{{path('news_add',{type:'admin'})}}" class="btn-floating btn-small waves-effect waves-light mr_1"><i class="material-icons left">add_circle</i></a>
+        <div class="input-field ">
+          <input placeholder="Search" id="search" type="text" class="validate" onkeyup="myFunction()">
+          
+        </div>
+
+      
+      </div>
+<table id="table" class="highlight centered responsive-table ">
+        <thead class="">
+          <tr>
+              <th><i class="material-icons">arrow_drop_down</i>Titre</th>
+              <th><i class="material-icons">arrow_drop_down</i>Auteur</th>
+              <th><i class="material-icons">arrow_drop_down</i>Date</th>
+              <th><i class="material-icons">arrow_drop_down</i>Est publier</th>
+              <th><i class="material-icons">arrow_drop_down</i>images</th>
+              <th><i class="material-icons">arrow_drop_down</i>Plateformes</th>
+
+              <th colspan="3">Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+        {% for news  in  pagination.getData() %}
+          <tr>
+            <td>{{news.title}}</td>
+            <td>{{news.user.username}}</td>
+            <td>{{news.createdAt|format_datetime('full','none',locale='fr')}}</td>
+
+            <td class="{{news.isPublished ? 'true' : 'false'}}">
+             
+            {{news.isPublished ? 'true' : 'false'}}</td>
+            <td>
+            {% if news.attachments|length> 0  %}
+            <img class="materialboxed circle_image " width="50px" height="50px" src="{{news.attachments[0].path}}">
+              {% else %}
+                aucune image
+            {% endif %}
+          
+            </td>
+             <td>
+             {% for category in news.categories %}
+               <div class="chip ">
+               
+							{{category.name}}
+
+					
+					</div>
+             {% endfor %}
+             </td>
+      
+            <td>
+          
+              <a href="{{path('news_edit',{id:news.id,type:'admin'})}}" class="btn-floating  waves-effect waves-light "><i class="material-icons">edit</i></a>
+               {# <a class="waves-effect waves-light btn-small center"><i class="material-icons left">edit</i></a> #}
+            </td>
+            <td>
+             <a href="#{{news.id}}" class="btn-floating  waves-effect waves-light red modal-trigger"><i class="material-icons">delete</i></a>
+            </td>
+             <td>
+             	<a href="{{path('news_show',{id:news.id})}}">
+									<i class="material-icons eye">remove_red_eye</i>	
+									</a>
+            </td>
+          </tr>
+          <!-- Modal Structure -->
+<div id="{{news.id}}" class="modal">
+	<div class="modal-content">
+		<h4>Delete News</h4>
+		<p>Are You Sure To Delete ({{news.title}}) </p>
+	</div>
+	<div class="modal-footer">
+		<a id="accept-delete" href="{{path('news_delete',{id:news.id,type:'admin'})}}" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+		<a id="ignore-accept" class="modal-close waves-effect waves-green btn-flat">cancle</a>
+	</div>
+</div>
+        {% endfor %}
+         
+          
+        </tbody>
+      </table>
+     
+           <div class="row">
+            {% if total > pagination.getLimit() %}
+            <div class="col s12">
+            
+               {{pagination.display()}}
+
+               </div>
+               {% endif %}
+           </div>
+          </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+		{{parent()}}
+
+  <script>
+    const table = document.getElementById('table');
+  
+
+let log = console.log;
+let up='arrow_drop_up';
+let down='arrow_drop_down';
+const sortTableByColumn = (table, column, asc = true) => {
+    let sort = asc ? 1 : -1;
+    let rows = Array.from(table.tBodies[0].querySelectorAll(`tr `));
+
+    rows.sort((a, b) => {
+        let aCell = a.querySelector(`td:nth-child(${column})`).textContent.trim();
+        let bCell = b.querySelector(`td:nth-child(${column})`).textContent.trim();
+        return aCell > bCell ? 1 * sort : -1 * sort;
+    });
+
+    table.tBodies[0].querySelectorAll(`tr `).forEach(element => {
+        table.tBodies[0].removeChild(element);
+    });
+
+    table.tBodies[0].append(...rows);
+}
+
+let thead = table.querySelectorAll('thead tr th');
+thead.forEach((el, index) => {
+    el.addEventListener('click', (e) => {
+      
+        let isAsc=el.querySelector('i').textContent=='arrow_drop_down' ? true :false;
+        sortTableByColumn(table, index + 1, isAsc);
+
+        table.querySelectorAll('thead tr th i').forEach((i)=>{
+            if (i.textContent == 'arrow_drop_down') {
+                i.textContent = 'arrow_drop_up';
+            } else {
+                i.textContent= 'arrow_drop_down';
+            }
+        })
+
+    });
+
+})
+
+
+
+
+function myFunction() {
+  var input, filter, table, tr, td,tds, i, txtValue;
+  input = document.getElementById("search");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("table");
+  tr = table.getElementsByTagName("tr");
+   console.log(tr.length)
+  for (i = 0; i < tr.length; i++) {
+   
+    td= tr[i].getElementsByTagName("td");
+     
+    
+    if (td[0]) {
+      txtValue = td[0].textContent || td[0].innerText;
+     // txtValue2 = td[3].textContent || td[3].innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1 ) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  
+
+
+  }
+}
+  </script>
+{% endblock %}

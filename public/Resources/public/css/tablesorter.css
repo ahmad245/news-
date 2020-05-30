@@ -1,0 +1,319 @@
+@font-face {
+  font-family: 'arrows';
+  src: url("../../../fonts/arrows.eot?vb5qrg");
+  src: url("../../../fonts/arrows.eot?vb5qrg#iefix") format("embedded-opentype"), url("../../../fonts/arrows.ttf?vb5qrg") format("truetype"), url("../../../fonts/arrows.woff?vb5qrg") format("woff"), url("../../../fonts/arrows.svg?vb5qrg#arrows") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="tablesorter-header"]:before,
+[class*="tablesorter-header"]:before {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'arrows' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+table.tablesorter {
+  margin-bottom: 0;
+  margin-top: 0;
+  border: none;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#table_div {
+  visibility: hidden;
+  padding-bottom: 20px;
+}
+
+#table_div.loaded {
+  visibility: visible;
+  display: table;
+  width: auto;
+  min-width: 100%;
+}
+
+table.tablesorter tr {
+  height: 36px;
+  background-color: transparent;
+}
+
+table.tablesorter tbody tr:not(.orange-header):not(.orange-header-light):not(.orange-header-soft):not(.total):hover {
+  background-color: #f9f9f9;
+}
+
+table.tablesorter td, table.tablesorter th {
+  border: 1px solid #4CB2D1;
+  padding: 0 8px;
+}
+
+table.tablesorter td {
+  background-color: transparent;
+  font-size: 13.2px;
+  color: #464C58;
+  padding: 4px 8px;
+}
+
+table.tablesorter td.altColor {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+table.tablesorter th.altColor {
+  background-color: #C2D6DC;
+}
+
+table.tablesorter td.highlightColor {
+  background-color: #BBBDDD;
+}
+
+table.tablesorter td.highlightColor.altColor {
+  background-color: #A8AAC6;
+}
+
+table.tablesorter th {
+  font-size: 14.2px;
+  background-color: #a5e9e8;
+  height: 40px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+table.tablesorter th.text_left {
+  text-align: left;
+}
+
+table.tablesorter th.text_right {
+  text-align: right;
+}
+
+/*table.tablesorter th span {
+	color: #FFF !important;
+}*/
+table.tablesorter:not(.no-column-selector) thead tr:nth-child(n+3) th,
+table.tablesorter.no-column-selector thead tr:nth-child(n+2) th {
+  border-top: 1px solid #FFF;
+}
+
+table th.tablesorter-header:not(.sorter-false) {
+  cursor: pointer;
+}
+
+table.tablesorter thead th.tablesorter-headerAsc:before,
+table.tablesorter thead th.tablesorter-headerDesc:before {
+  float: right;
+  line-height: 23px;
+}
+
+table.tablesorter thead th.tablesorter-headerAsc:before {
+  content: "\edc4";
+  float: right;
+}
+
+table.tablesorter thead th.tablesorter-headerDesc:before {
+  content: "\edc6";
+  float: right;
+}
+
+table.tablesorter .border-bottom {
+  border-bottom: 2px solid #9e9e9e !important;
+}
+
+table.tablesorter thead tr:last-of-type th, table.tablesorter thead tr:last-of-type td {
+  border-bottom: 2px solid #9e9e9e !important;
+}
+
+table.tablesorter tr.tablesorter-filter-row td,
+table.tablesorter tr.tablesorter-filter-row th {
+  padding: 5px;
+}
+
+/*table.tablesorter tbody tr:last-child td {
+    border-bottom: none;
+}*/
+.tablesorter-header-inner {
+  line-height: 1.2;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#cnt_suivi table.tablesorter td {
+  border-color: #CCC;
+}
+
+table.table-planning td {
+  padding: 0 8px;
+}
+
+table.table-planning th:first-of-type {
+  border-top: none;
+  border-left: none;
+}
+
+table.table-planification th {
+  position: relative;
+}
+
+table.table-planification th .icon-copy {
+  position: absolute;
+  font-size: 20px;
+  top: 50%;
+  margin-top: -10px;
+  right: 8px;
+}
+
+.show-selector {
+  vertical-align: middle;
+}
+
+.columnSelectorWrapper {
+  position: relative;
+  width: 16px;
+  /*background-color: #4CB2D1;*/
+  text-align: center;
+  height: 1px;
+  line-height: 40px;
+  padding: 0;
+  top: 0;
+  float: right;
+}
+
+.columnSelectorWrapper .icon {
+  color: #000;
+  font-size: 20px;
+}
+
+.columnSelectorWrapper .columnSelector {
+  display: none;
+  position: absolute;
+  overflow: auto;
+  overflow-x: hidden;
+  right: 0;
+  top: 35px;
+  min-width: 250px;
+  height: auto;
+  max-height: 402px;
+  margin: 4px 0 0;
+  padding: 0 10px;
+  z-index: 15000;
+  border: 1px solid #A6A6A6;
+  background-color: #FFF;
+  color: #464C58;
+  text-align: left;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+.columnSelectorWrapper .columnSelector .columnSelectorCell {
+  width: 100%;
+  white-space: nowrap;
+}
+
+.columnSelectorWrapper .columnSelector .columnSelectorCell input.labelauty + label:not(.lib) {
+  display: inline-block;
+  line-height: 14px;
+}
+
+.columnSelectorWrapper .columnSelector .columnSelectorCell label.lib {
+  line-height: 40px;
+  margin-left: 5px;
+}
+
+.columnSelectorWrapper + .tablesorter thead tr:first-child th:last-of-type,
+.columnSelectorWrapper + .tablesorter-resizable-container + .tablesorter thead tr:first-child th:last-of-type {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+table.tablesorter tr.column-selector .columnSelector div.row_selector {
+  display: inline-block;
+  width: 100%;
+  text-align: left;
+  height: 35px;
+  line-height: 40px;
+}
+
+table.tablesorter tr.column-selector .columnSelector div.row_selector input.labelauty + label {
+  display: inline-block;
+  line-height: 10px;
+  margin: 4px 0;
+}
+
+table.tablesorter tfoot tr {
+  background: none;
+  height: auto;
+  line-height: 36px;
+}
+
+table.tablesorter tfoot tr td {
+  border-left: none;
+  border-bottom: none;
+  border-right: none;
+}
+
+table.tablesorter:not(.not-resizable) {
+  margin-top: -1px;
+}
+
+table.tablesorter.grey-border th, table.tablesorter.grey-border td {
+  border-color: #969696;
+}
+
+table.tablesorter.no-footer tfoot {
+  display: none;
+}
+
+table.tablesorter tr.txt_error td, table.tablesorter tr.txt_error td a,
+table.tablesorter td.txt_error {
+  color: #D90000;
+}
+
+table.tablesorter th.left-border, table.tablesorter td.left-border {
+  border-left: 1px solid #9e9e9e !important;
+}
+
+table.tablesorter th.left-border-light, table.tablesorter td.left-border-light {
+  border-left: 1px solid #E9E9E9 !important;
+}
+
+table.tablesorter th.right-border, table.tablesorter td.right-border {
+  border-right: 1px solid #9e9e9e !important;
+}
+
+table.tablesorter th.right-border-light, table.tablesorter td.right-border-light {
+  border-right: 1px solid #E9E9E9 !important;
+}
+
+table.tablesorter tr.total {
+  border-top: 2px solid #9e9e9e !important;
+  border-bottom: none !important;
+}
+
+table:not(.table-planning-nostyle)
+.ts-align-wrap {
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+}
+
+.ts-align-wrap, .ts-align-left, .ts-align-right {
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.ts-align-left {
+  text-align: right;
+}
+
+.ts-align-right {
+  text-align: left;
+}
+/*# sourceMappingURL=tablesorter.css.map */

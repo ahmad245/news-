@@ -1,0 +1,256 @@
+{% extends 'base.html.twig' %}
+{% form_theme form _self %}
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+{# <pre>
+					{{ dump(app.flashes) }}
+				</pre> #}
+				{# {% set message = app.flashes %} #}
+{# <pre>
+	{{ dump( app.flashes('succuss')|length) }}
+</pre> #}
+{# <pre>
+	{{ dump( app.session.flashbag.get('succuss')) }}
+</pre> #}
+{# {% set lengthMessage = app.flashes('succuss')|length %} #}
+
+<div class="row ">
+		  <div class="col s10">
+		    <ul class="collapsible">
+				<li>
+					<div class="collapsible-header"><i class="material-icons">filter_list</i>Filter</div>
+					<div class="collapsible-body">
+					    {% include "filter/index.html.twig" with {'form':form} %}
+						<div class="row right-align">
+							<a href={{path('home')}} class="btn-floating btn-small  waves-effect waves-light red ">
+								<i class="material-icons">clear</i>
+							</a>
+						</div>	
+					</div>
+				</li>
+				
+           </ul>
+		  </div>
+
+		  <div class="col s2 filter">
+		     <a id="ver" class="btn-floating nav_bg tooltipped" data-position="top" data-delay="50" data-tooltip="Chart"><i class="material-icons">view_column</i></a>
+			<a  id="hor" class="btn-floating nav_bg darken-1 tooltipped" data-position="top" data-delay="50" data-tooltip="Quote"><i class="material-icons">view_headline</i></a>
+		  </div>
+		</div>
+
+
+		      <a id="successTrigger" class="waves-effect waves-light btn modal-trigger  hide" href="#modalSuccess">Modal</a>
+
+				<!-- Modal Structure -->
+				<div id="modalSuccess" class="modal successTrigger">
+					<div class="modal-content">
+					{% for message in app.flashes('success') %}
+                      
+ 
+					<h4> <i class="material-icons">check_circle</i><span id="message">  {{message}}</span></h4>
+					 
+					 {% endfor %}
+					</div>
+					<div class="modal-footer modal-action">
+					<a href="#!" class="modal-close waves-effect waves-green teal btn">OK</a>
+					</div>
+				</div>
+
+
+  <div class="row ">
+  
+  {% for news in allNews.getData() %}
+  <div class="col s10 animate__animated grid_s  ">
+	  {% include "news/_news.html.twig" with {'news':news} %}
+	  </div>
+  {% endfor %}
+  </div>
+     {% if allNews.getTotal() > allNews.getLimit() %}
+	 
+      <div class="row center-align">
+            <div class="card-panel col  s10  center">
+               {{allNews.display()}}
+               </div>
+           </div>
+	  {% endif %}	   
+{% endblock %}
+
+{% block _title_widget %}
+  <div class=" input-field">
+  {{form_widget(form)}}
+  </div>
+ {% endblock %}
+
+	{% block javascripts %}
+		{{parent()}}
+		
+		<script>
+		
+		 let images=document.querySelectorAll('img');
+				images.forEach((el)=>{
+					el.classList.add('responsive-img');
+					el.classList.add('materialboxed');
+				
+				})
+		document.addEventListener('DOMContentLoaded', function() {
+
+			 var fixed = document.querySelectorAll('.fixed-action-btn');
+    var fixedinstances = M.FloatingActionButton.init(fixed, {
+		direction:'right'
+	});
+
+
+             var serchAuto = document.querySelector('.autocomplete');
+              var instancesserchAuto = M.Autocomplete.init(serchAuto, {});
+
+			  	const fetchTitle = (url) => {
+							let urlUser = "{{ path('filter_by_title',{title:'url'}) }}";
+						urlUser = urlUser.replace('url', url);
+						console.log(urlUser)
+						return  axios.get(urlUser).then((response) => {
+						return response.data;
+						}).catch((err) => {
+						console.log(err);
+						})
+						
+				} 
+			    var searchFor = M.Autocomplete.getInstance(serchAuto);
+
+			   const debounceUserSearch = (callback, delay = 1000) => {
+							let timeoutId;
+							return (...args) => {
+								if (timeoutId) {
+									clearTimeout(timeoutId);
+								}
+								timeoutId = setTimeout(() => {
+									callback.apply(null, args);
+								}, delay);
+							}
+             }
+
+			  onKeyUpUserSearch=async(e)=>{
+					let resultSearchUser= await fetchTitle(e.target.value);
+					  console.log(resultSearchUser)
+									let userObect={};
+									if(resultSearchUser?.length>0){
+									resultSearchUser.forEach((obj)=>{
+										userObect[obj.title]=null
+									})
+									console.log(resultSearchUser);
+									searchFor.updateData(userObect);
+									}
+				
+			  }
+			serchAuto.addEventListener('keyup',debounceUserSearch(onKeyUpUserSearch))
+
+
+
+
+			/////////////////////////////////modal success///////////////
+			
+				let message=document.getElementById('message')
+				
+				 if( message &&  message?.textContent!==""){
+                  let success=document.getElementById('successTrigger');
+				
+				  success.click();
+				
+                
+				 }
+				
+				
+				
+  });
+
+
+  let ver=document.getElementById("ver");
+ 
+  ver.addEventListener('click',()=>{
+	 document.querySelectorAll(".grid_s").forEach((el,index)=>{
+		
+         el.classList.remove("s10");
+          el.classList.add("s5");
+		   el.style.transition = "all .2s";
+
+ })
+  })
+
+    let hor=document.getElementById("hor");
+ 
+  hor.addEventListener('click',()=>{
+	 document.querySelectorAll(".grid_s").forEach((el,index)=>{
+         el.classList.remove("s5");
+          el.classList.add("s10");
+		   el.style.transition = "all .2s";
+		  
+
+ })
+  })
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+{# 
+let contents=document.querySelectorAll('.card-content').forEach((content)=>{
+
+
+let text=content.textContent;
+
+ let contentImages=content.querySelectorAll('img');
+   var char_limit = 200;
+
+if(text.length < char_limit)
+	    {  content.innerHTML='<div> ' + text + '</div>';
+		 contentImages.forEach((el)=>{
+ content.insertAdjacentElement('afterbegin',el);
+		})}
+
+		 
+else
+  {content.innerHTML='<div><span class="short-text">' + text.substr(0, char_limit) + '</span><span class="long-text">' + text.substr(char_limit) + '</span><span class="text-dots">...</span><span class="show-more-button" data-more="0">See More</span></div>' ;
+	    contentImages.forEach((el)=>{
+ content.insertAdjacentElement('afterbegin',el);
+		})
+	  
+	}
+ let btnRead=content.querySelector('.show-more-button');
+ if(btnRead){
+
+btnRead.addEventListener('click', function() {
+	// If text is shown less, then show complete
+	if(this.getAttribute('data-more') == 0) {
+		this.setAttribute('data-more', 1);
+		this.style.display = 'block';
+		this.innerHTML = 'Read Less';
+
+		this.previousSibling.style.display = 'none';
+		this.previousSibling.previousSibling.style.display = 'inline';
+	}
+	// If text is shown complete, then show less
+	else if(this.getAttribute('data-more') == 1) {
+		this.setAttribute('data-more', 0);
+		this.style.display = 'inline';
+		this.innerHTML = 'Read More';
+
+		this.previousSibling.style.display = 'inline';
+		this.previousSibling.previousSibling.style.display = 'none';
+	}	
+});
+ }
+
+
+})
+
+
+
+
+
+
+ #}
+
+ {# category: '[data-category]', #}
+// init Isotope
+
+
+		</script>
+ 
+
+{% endblock %}

@@ -1,0 +1,99 @@
+/*pour bouton en haut à droite dans la frame centre -> manager/gestionnaires/gerer-profils/supprimer/*/
+.btn_action {
+	float: right;
+	padding: 0 14px;
+	background-color: $float-bouton-couleur-fond;
+	color: $float-bouton-couleur !important;
+	text-transform: uppercase;
+	display: block;
+	margin-bottom: 20px;
+	transition: all 0.3s ease;
+	border: none;
+	cursor: pointer;
+	font-size: 13.0px;
+	height: 40px;
+	line-height: 40px;
+
+	&:hover {
+		color: $float-bouton-couleur-hover;
+	}
+
+	@include hbgtranslate($float-bouton-couleur-fond, $float-bouton-couleur-fond-hover, top, bottom);
+	@include box-shadow-material();
+
+	&:not(:first-child) {
+		margin-right: 10px;
+	}
+
+	table.tablesorter td & {
+		float: none;
+		height: 30px;
+		line-height: 30px;
+		margin: 5px auto;
+	}
+}
+
+.btn_valider, .btn_supprimer, .btn_annuler, .btn_fichier, .btn_rouge {
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 13.2px;
+	padding: 0 15px;
+	height: 40px;
+	line-height: 40px;
+	color: $inline-bouton-couleur;
+	background-color: $inline-bouton-couleur-fond;
+	text-decoration: none;
+	display: inline-block;
+	cursor: pointer;
+	transition: background 0.2s;
+	transition: background-color ease 0.25s;
+	
+	@include hbgtranslate($inline-bouton-couleur-fond, $inline-bouton-couleur-fond-hover, top, bottom);
+
+	&:hover {
+		color: $inline-bouton-couleur-hover;
+	}
+}
+
+.btn_valider, .btn_supprimer, .btn_annuler {
+	@include box-shadow-material();
+}
+
+.btn_annuler, .btn_supprimer {
+	color: $inline-bouton-annuler-couleur;
+	background-color: $inline-bouton-annuler-couleur-fond;
+	
+	@include hbgtranslate($inline-bouton-annuler-couleur-fond, $inline-bouton-annuler-couleur-fond-hover, top, bottom);
+	@include box-shadow-material();
+	
+	&:hover {
+		color: $inline-bouton-annuler-couleur-hover;
+	}
+}
+
+.btn_rouge {
+	background-color: #d90000;
+
+	@include hbgtranslate(#d90000, #d96356, top, bottom);
+	@include box-shadow-material();
+}
+
+.btn_fichier {
+	padding: 0 8px;
+	width: 100%;
+	color: #FFF;
+	background-color: $inline-bouton-annuler-couleur-fond;
+
+	@include hbgtranslate($inline-bouton-annuler-couleur-fond, $inline-bouton-annuler-couleur-fond-hover, top, bottom);
+
+	&:hover {
+		color: $inline-bouton-annuler-couleur-hover;
+	}
+}
+
+.btn_action, .btn_valider, .btn_supprimer, .btn_annuler {
+	.submit_zone &:not(:first-child),
+	.form-footer &:not(:first-child) {
+		margin-left: 30px;
+	}
+}

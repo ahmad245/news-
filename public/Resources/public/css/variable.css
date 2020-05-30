@@ -1,0 +1,38 @@
+@charset "UTF-8";
+/**
+- Pour les couleurs dans les popup voir variables dans assets/core/variable.scss
+ */
+/*---- VARS POUR LES COULEUR PRINCIPALES ------*/
+/*couleur-trois utilisée juste pour les boutons de formulaire au cas ou on voudrait les changer de couleur*/
+/*---- VARS POUR LE HEADER ------*/
+/*---- VARS POUR LA NAV ------*/
+/*
+$nav-couleur: #464c58;
+$nav-list-principal-couleur: #fff;
+$nav-couleur-a: $couleur-sec-dark;
+$nav-couleur-a-hover: $couleur-princ;
+$nav-list-principal-couleur-a-hover: $nav-couleur;
+$nav-li-couleur-sous-titre: $nav-couleur;
+$nav-fond: #ffffff;
+$nav-li-couleur-fond: $nav-couleur;
+$nav-li-couleur-fond-hover: #fff;
+$nav-couleur-icone: $couleur-sec-dark;
+$nav-couleur-i-hover: $couleur-princ;
+$nav-fond-menu-active: #464c58;
+$nav-menu-replier-couleur-fond-active: #fff;
+$nav-couleur-menu-active: $couleur-princ;
+$nav-menu-replier-fond: $couleur-sec-light2;
+$nav-menu-active-couleur-icone: $couleur-princ;
+$nav-menu-replier-couleur: #ffffff;
+$nav-menu-replier-couleur-active: #464c58;
+$nav-menu-replier-couleur-current: #5b6271;
+*/
+/*---- VARS POUR LES H1 ET H2 ------*/
+/*---- VARS POUR LES BOUTONS FLOTANTS EN AU A DROITE ------*/
+/*---- VARS POUR LES BOUTONS EN INLINE DANS LE CONTENU ------*/
+/*---- VARS POUR LES FORMS ------*/
+/*---- VARS POUR LES TABLES.liste ------*/
+/*---- VARS POUR DATETIMEPICKER -----*/
+/*---- VARS POUR LES COULEUR DANS LES CHECKBOX ------*/
+/*---- VARS POUR LES COULEUR DANS LES SWITCHS ------*/
+/*# sourceMappingURL=variable.css.map */

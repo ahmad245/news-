@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,UAAU;EACN,WAAW,EAAE,MAAM;EACnB,GAAG,EAAE,sCAAsC;EAC3C,GAAG,EAAE,6CAA6C,CAAC,2BAA2B,EACzE,wCAAwC,CAAC,eAAe,EACxD,uCAAuC,CAAC,cAAc,EACtD,sCAAsC,CAAC,kBAAkB,EACzD,kDAAkD,CAAC,aAAa;EACrE,WAAW,EAAE,MAAM;EACnB,UAAU,EAAE,MAAM",
+    "sources": [
+        "teko-regular.scss"
+    ],
+    "names": [],
+    "file": "teko-regular.css"
+}

@@ -1,0 +1,319 @@
+@charset "UTF-8";
+/* media queries */
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    font-size: 15px !important;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
+#page {
+    min-height: 100%;
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+}
+
+#page section#content {
+    width: 100%;
+    min-height: 100%;
+    padding: 0;
+    flex: 1 0 100%;
+}
+
+@media (min-width: 600px) {
+    #page section#content {
+        flex: 1 0 50%;
+    }
+}
+
+@media (min-width: 992px) {
+    #page section#content {
+        flex: 1 0 40%;
+    }
+}
+
+@media (min-width: 1200px) {
+    #page section#content {
+        flex: 1 0 33%;
+    }
+}
+
+#page section#content #baseline {
+    height: 30.5%;
+    position: relative;
+    overflow: hidden;
+    background: url(../../../img/login/activ-projet_logo_xs.png) no-repeat center center, url(../../../img/login/bg_logo.png) no-repeat center center;
+    background-size: contain, cover;
+    background-color: #14657a;
+}
+
+@media (min-width: 600px) {
+    #page section#content #baseline {
+        height: 36.5%;
+        background: url(../../../img/login/activ-projet_logo.png) no-repeat center center, url(../../../img/login/bg_logo.png) no-repeat center center;
+        background-size: contain, cover;
+    }
+}
+
+#page section#content .form {
+    min-height: 57.5%;
+    background-size: cover;
+    font-family: 'arial', sans-serif;
+    color: #fff;
+    padding: 0 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #134e5d;
+}
+
+@media (min-width: 600px) {
+    #page section#content .form {
+        min-height: 63.5%;
+    }
+}
+
+#page section#content .form .form-content header {
+    padding: 0;
+}
+
+#page section#content .form .form-content header h1 {
+    font-family: "akzidenz_super", "arial black", sans-serif, "arial black", sans-serif;
+    font-size: 2.7em;
+    line-height: 0.7em;
+}
+
+@media screen and (orientation: landscape) and (max-height: 600px) {
+    #page section#content .form .form-content header h1 {
+        font-size: 2.5em;
+    }
+}
+
+#page section#content .form .form-content header .instruction {
+    font-size: 1em;
+    padding-top: 10px;
+    font-family: "akzidenz_medium", "arial narrow", sans-serif;
+}
+
+#page section#content .form .form-content header .instruction span {
+    color: #facd4e;
+}
+
+#page section#content .form .form-content main {
+    padding: 20px 0 20px;
+}
+
+@media (max-width: 429px) {
+    #page section#content .form .form-content main {
+        padding: 0;
+    }
+}
+
+#page section#content .form .form-content main .input-field {
+    position: relative;
+    height: 45px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+#page section#content .form .form-content main .input-field::before {
+    content: ' ';
+    position: absolute;
+    display: block;
+    background: url(../../../img/login/icone-user.png) no-repeat center center;
+    background-size: 90%;
+    width: 55px;
+    height: 45px;
+}
+
+#page section#content .form .form-content main .input-field.password::before {
+    background: url(../../../img/login/icone-password.png) no-repeat center center;
+    background-size: 90%;
+}
+
+#page section#content .form .form-content main .input-field input {
+    padding-left: 55px;
+    width: calc(100% - 55px);
+    height: 45px;
+    color: #fff;
+    font-size: 1em;
+    background-color: #1b5969;
+    margin-bottom: 15px !important;
+    border-bottom: 0;
+}
+
+#page section#content .form .form-content main .input-field #oubli_form {
+    position: absolute;
+    top: 50%;
+    right: 6px;
+    width: 45px;
+    height: 45px;
+    transform: translateY(-50%);
+    padding: 6px;
+}
+
+#page section#content .form .form-content main .input-field #oubli_form a {
+    display: inline-block;
+    /*font-family: 'teko', sans-serif;*/
+    line-height: 35px;
+    width: 100%;
+    height: 100%;
+    font-size: 1.3em;
+    border-radius: 50%;
+    background-color: #facd4e;
+    color: #134e5d;
+    text-align: center;
+}
+
+#page section#content .form .form-content footer {
+    overflow: hidden;
+}
+
+#page section#content .form .form-content footer button {
+    position: relative;
+    padding-left: 65px;
+    text-transform: uppercase;
+    color: #fff;
+    transition: all 0.3s;
+    line-height: 45px;
+    font-family: "akzidenz_super", "arial black", sans-serif;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+}
+
+
+#page section#content .form .form-content footer button::before {
+    content: ' ';
+    position: absolute;
+    left: 0;
+    width: 45px;
+    height: 45px;
+    background: url(../../../img/login/connexion.png) no-repeat center center;
+    background-size: contain;
+    transition: transform 0.3s;
+}
+
+@media (min-width: 1200px) {
+    #page section#content .form .form-content footer button::before {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+#page section#content .logos {
+    display: flex;
+    height: 12%;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@media (min-width: 600px) {
+    #page section#content .logos {
+        display: none;
+    }
+}
+
+#page section#content .logos div {
+    position: relative;
+    height: 100%;
+}
+
+#page section#content .logos div img {
+    width: auto;
+    display: block;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+#page section#content .logos div#logo-olf {
+    width: 100%;
+    background: url(../../../img/login/logo-olf.png) no-repeat center center;
+    background-color: #14657a;
+    background-size: auto 50%;
+}
+
+#page section#image-bg {
+    display: none;
+    order: 0;
+    background: url(../../../img/login/bg_illustration.jpg) no-repeat right top;
+    background-size: cover;
+    background-color: #14657a;
+}
+
+@media (min-width: 600px) {
+    #page section#image-bg {
+        display: block;
+        width: 50%;
+        flex: 1 1 50%;
+    }
+}
+
+@media (min-width: 992px) {
+    #page section#image-bg {
+        flex: 1 0 60%;
+    }
+}
+
+@media (min-width: 1200px) {
+    #page section#image-bg {
+        flex: 1 0 67%;
+    }
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    /* IE10+ CSS styles go here */
+    .form-content header {
+        padding: 100px 0 0 !important;
+    }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s, box-shadow 5000s ease-in-out 0s !important;
+    -webkit-box-shadow: 0 0 0px 1000px #1b5969 inset !important;
+    -webkit-text-fill-color: #fff !important;
+}
+
+/* Popup modale de récupération d'identifiants */
+#modalRecupId {
+    display: none;
+    width: 600px;
+}
+
+#modalRecupId .modal-content {
+    padding: 0;
+}
+
+#modalRecupId iframe {
+    border: none;
+    width: 100%;
+    height: 280px;
+}
+
+a.modal-trigger {
+    color: #facd4e;
+}
+
+@media (max-height: 580px) {
+    #page section#content #baseline {
+        min-height: 200px;
+    }
+    #page section#content form {
+        min-height: 350px;
+    }
+}

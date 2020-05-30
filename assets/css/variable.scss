@@ -1,0 +1,160 @@
+/**
+- Pour les couleurs dans les popup voir variables dans assets/core/variable.scss
+ */
+
+/*---- VARS POUR LES COULEUR PRINCIPALES ------*/
+$couleur-princ-lighter: #caf2f1;
+$couleur-princ-light: #4cc4c2;
+$couleur-princ: #02abac;
+$couleur-princ-dark: #028080;
+
+$couleur-sec-light4: #f5f5f5;
+$couleur-sec-light3: #eeeeee;
+$couleur-sec-light2: #e0e0e0;
+$couleur-sec-light: #bdbdbd;
+$couleur-sec: #9e9e9e;
+$couleur-sec-dark: #757575;
+$couleur-sec-dark2: #616161;
+
+$couleur-alt: #d72072;
+
+
+/*couleur-trois utilisée juste pour les boutons de formulaire au cas ou on voudrait les changer de couleur*/
+$couleur-trois-light: $couleur-princ-light;
+$couleur-trois: $couleur-princ;
+$couleur-trois-dark: $couleur-princ-dark;
+
+
+/*---- VARS POUR LE HEADER ------*/
+$header-couleur-icones: #fff;
+
+
+
+/*---- VARS POUR LA NAV ------*/
+/*
+$nav-couleur: #464c58;
+$nav-list-principal-couleur: #fff;
+$nav-couleur-a: $couleur-sec-dark;
+$nav-couleur-a-hover: $couleur-princ;
+$nav-list-principal-couleur-a-hover: $nav-couleur;
+$nav-li-couleur-sous-titre: $nav-couleur;
+$nav-fond: #ffffff;
+$nav-li-couleur-fond: $nav-couleur;
+$nav-li-couleur-fond-hover: #fff;
+$nav-couleur-icone: $couleur-sec-dark;
+$nav-couleur-i-hover: $couleur-princ;
+$nav-fond-menu-active: #464c58;
+$nav-menu-replier-couleur-fond-active: #fff;
+$nav-couleur-menu-active: $couleur-princ;
+$nav-menu-replier-fond: $couleur-sec-light2;
+$nav-menu-active-couleur-icone: $couleur-princ;
+$nav-menu-replier-couleur: #ffffff;
+$nav-menu-replier-couleur-active: #464c58;
+$nav-menu-replier-couleur-current: #5b6271;
+*/
+
+$nav-couleur: #464c58;
+$nav-list-principal-couleur: #fff;
+$nav-couleur-a: $couleur-sec-dark;
+$nav-couleur-a-hover: $couleur-princ;
+$nav-li-couleur-sous-titre: $nav-couleur;
+$nav-fond: #ffffff;
+$nav-li-couleur-fond: $nav-couleur;
+$nav-li-couleur-fond-hover: #fff;
+$nav-couleur-i-hover: $couleur-princ;
+$nav-fond-menu-active: #464c58;
+$nav-couleur-menu-active: $couleur-princ;
+$sous-nav-menu-fond-current: #33373f;
+$sous-sous-nav-menu-fond-current: #494e5a; //565c69
+$sous-nav-menu-couleur-current: #ffffff;
+$nav-li-couleur-sous-titre-active: #ffffff;
+$sous-nav-menu-couleur-current-hover: $couleur-princ;
+$nav-li-courant-couleur: #fff;
+$nav-li-courant-fond: $couleur-princ;
+
+
+
+/*---- VARS POUR LES H1 ET H2 ------*/
+$titre-h1-couleur: $couleur-sec-dark;
+$titre-h3-couleur: $couleur-princ;
+
+
+/*---- VARS POUR LES BOUTONS FLOTANTS EN AU A DROITE ------*/
+$float-bouton-couleur-fond: $couleur-trois;
+$float-bouton-couleur-fond-hover: $couleur-trois-dark;
+$float-bouton-couleur: #ffffff;
+$float-bouton-couleur-hover: #ffffff;
+
+
+/*---- VARS POUR LES BOUTONS EN INLINE DANS LE CONTENU ------*/
+$inline-bouton-couleur-fond: $couleur-trois;
+$inline-bouton-couleur-fond-hover: $couleur-trois-dark;
+$inline-bouton-couleur: #ffffff;
+$inline-bouton-couleur-hover: #ffffff;
+
+$inline-bouton-annuler-couleur-fond: $couleur-sec-light;
+$inline-bouton-annuler-couleur-fond-hover: $couleur-sec-dark;
+$inline-bouton-annuler-couleur: #464c58;
+$inline-bouton-annuler-couleur-hover: #ffffff;
+
+
+/*---- VARS POUR LES FORMS ------*/
+$form-couleur-label: #464c58;
+$form-input-couleur-fond: #F0F0F0;
+$form-input-couleur: #464c58;
+$form-input-couleur-fond-focus: #fff;
+$form-input-border-focus: $couleur-princ;
+$form-input-border-invalid: #d21242;
+
+$form-bouton-couleur-fond: $couleur-trois;
+$form-bouton-couleur-fond-hover: $couleur-trois-dark;
+$form-bouton-couleur: #ffffff;
+$form-bouton-couleur-hover: #ffffff;
+
+$form-bouton-annuler-couleur-fond: $couleur-sec-light;
+$form-bouton-annuler-couleur-fond-hover: $couleur-sec-dark;
+$form-bouton-annuler-couleur: #464c58;
+$form-bouton-annuler-couleur-hover: #ffffff;
+
+$form-bouton-desactiver-couleur-fond: $couleur-sec-light;
+$form-bouton-desactiver-couleur: #464c58;
+
+
+/*---- VARS POUR LES TABLES.liste ------*/
+$table-liste-thead-fond: transparent;
+$table-liste-thead-couleur: #464c58;
+$table-liste-thead-border-couleur: $couleur-sec;
+$table-liste-border-couleur: transparent;
+$table-liste-border-td-couleur: $couleur-sec;
+$table-liste-fond-non-vide: #eeeeee;
+$table-liste-couleur-inactif: $couleur-sec-light;
+
+
+/*---- VARS POUR DATETIMEPICKER -----*/
+$dtpicker-fond: #fff;
+$dtpicker-entete-fond: $couleur-princ;
+$dtpicker-jour-couleur-fond: #fff;
+$dtpicker-jour-couleur: $couleur-sec-dark;
+$dtpicker-jour-entete-couleur: $couleur-sec;
+$dtpicker-jour-disabled-couleur-fond: #dedede;
+$dtpicker-jour-disabled-couleur: #464C58;
+$dtpicker-jour-courant-couleur-fond: $couleur-princ;
+$dtpicker-jour-courant-couleur: #fff;
+$dtpicker-jour-hover-couleur-fond: $couleur-sec-light;
+$dtpicker-jour-hover-couleur: $couleur-sec-dark2;
+
+
+/*---- VARS POUR LES COULEUR DANS LES CHECKBOX ------*/
+$checkbox-couleur-border-check: $couleur-princ;
+$checkbox-couleur-border: #9e9e9e;
+$checkbox-couleur-label: #464C58;
+$checkbox-indeterminate-fond-hover: $couleur-sec-light;
+$checkbox-couleur-border-disabled: #d5d5d5;
+$checkbox-couleur-background-disabled: #dedede;
+
+
+/*---- VARS POUR LES COULEUR DANS LES SWITCHS ------*/
+$switch-couleur-fond: $couleur-sec-dark;
+$switch-couleur-fond-bulle: $couleur-sec-light3;
+$switch-couleur-fond-active: $couleur-princ-light;
+$switch-couleur-fond-bulle-active: $couleur-princ-dark;

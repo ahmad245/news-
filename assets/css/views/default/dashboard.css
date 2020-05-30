@@ -1,0 +1,207 @@
+@charset "UTF-8";
+/**
+- Pour les couleurs dans les popup voir variables dans assets/core/variable.scss
+ */
+/*---- VARS POUR LES COULEUR PRINCIPALES ------*/
+/*couleur-trois utilisée juste pour les boutons de formulaire au cas ou on voudrait les changer de couleur*/
+/*---- VARS POUR LE HEADER ------*/
+/*---- VARS POUR LA NAV ------*/
+/*
+$nav-couleur: #464c58;
+$nav-list-principal-couleur: #fff;
+$nav-couleur-a: $couleur-sec-dark;
+$nav-couleur-a-hover: $couleur-princ;
+$nav-list-principal-couleur-a-hover: $nav-couleur;
+$nav-li-couleur-sous-titre: $nav-couleur;
+$nav-fond: #ffffff;
+$nav-li-couleur-fond: $nav-couleur;
+$nav-li-couleur-fond-hover: #fff;
+$nav-couleur-icone: $couleur-sec-dark;
+$nav-couleur-i-hover: $couleur-princ;
+$nav-fond-menu-active: #464c58;
+$nav-menu-replier-couleur-fond-active: #fff;
+$nav-couleur-menu-active: $couleur-princ;
+$nav-menu-replier-fond: $couleur-sec-light2;
+$nav-menu-active-couleur-icone: $couleur-princ;
+$nav-menu-replier-couleur: #ffffff;
+$nav-menu-replier-couleur-active: #464c58;
+$nav-menu-replier-couleur-current: #5b6271;
+*/
+/*---- VARS POUR LES H1 ET H2 ------*/
+/*---- VARS POUR LES BOUTONS FLOTANTS EN AU A DROITE ------*/
+/*---- VARS POUR LES BOUTONS EN INLINE DANS LE CONTENU ------*/
+/*---- VARS POUR LES FORMS ------*/
+/*---- VARS POUR LES TABLES.liste ------*/
+/*---- VARS POUR DATETIMEPICKER -----*/
+/*---- VARS POUR LES COULEUR DANS LES CHECKBOX ------*/
+/*---- VARS POUR LES COULEUR DANS LES SWITCHS ------*/
+.row {
+  display: inline-block;
+  width: 100%;
+}
+
+.col-1 {
+  padding: 0;
+  display: inline-block;
+}
+
+dl {
+  margin: 0 0 13px 0;
+}
+
+dl.altColor dt {
+  background: #d72072;
+}
+
+dl.altColor dd {
+  background: #f38dbb;
+}
+
+dl.grey dt {
+  background-color: #969696;
+}
+
+dl.grey dd {
+  background-color: #c2c2c2;
+}
+
+dt {
+  background: #02abac;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  padding: 3px 4px;
+  vertical-align: middle;
+  height: 40px;
+  line-height: 35px;
+  font-size: 18px;
+  /*min-width: 230px;*/
+  text-align: center;
+  overflow: hidden;
+}
+
+dt.altColor {
+  background: #d72072;
+}
+
+dd {
+  margin: 0;
+}
+
+dd.altColor {
+  background: #d72072;
+}
+
+.dashboard_cpt dd, .dashboard_grp dd, .dashboard_graph dd {
+  font-family: "Arial Black", Arial, Helvetica;
+  background-color: #02abac;
+  color: #FFF;
+  font-weight: bold;
+  font-size: 36px;
+  height: 61px;
+  line-height: 55px;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+
+.dashboard_tbl dd {
+  height: 150px;
+  overflow: auto;
+  background-color: #fff;
+}
+
+.dashboard_tbl dt {
+  line-height: 35px;
+  font-size: 18px;
+  color: #FFF;
+  text-align: left;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.dashboard_graph dd {
+  background: #FFF;
+}
+
+.dashboard_grp dd:hover {
+  cursor: pointer;
+  background-color: #ececec;
+}
+
+.dashboard_grp dt {
+  line-height: 40px;
+}
+
+.dashboard_grp .field {
+  margin-bottom: 10px;
+}
+
+.dashboard_grp dd {
+  font-size: 24px;
+}
+
+.dashboard_grp dd .title {
+  position: absolute;
+  left: 25px;
+  color: #7c7c7c;
+  font-size: 20px;
+}
+
+.dashboard_grp dd .value {
+  position: absolute;
+  right: 25px;
+  color: #23a4a4;
+}
+
+dt.vertical-center {
+  line-height: 42px;
+}
+
+.vertical-center > span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1.2;
+}
+
+.dashboard_cpt dd {
+  text-align: center;
+  color: #FFF;
+  background-color: #6dc8c8;
+  /*min-width: 230px;*/
+}
+
+.dashboard_cpt dd .grey {
+  color: #7c7c7c;
+  font-size: 26px;
+  float: right;
+  margin-right: 15px;
+}
+
+#dossiers_remu {
+  max-height: 194px;
+  overflow-y: auto;
+}
+
+#dossiers_remu .tablesorter {
+  min-width: 100% !important;
+  display: table;
+}
+
+#chart_inscrits {
+  height: 250px;
+}
+
+#chart_connexions {
+  height: 270px;
+}
+
+/*@media screen and (max-width: 1836px) {
+	dt {
+		font-size: 14px;
+	}
+}
+@media screen and (max-width: 1658px) {
+	dt {
+		font-size: 13.2px;
+	}
+}*/
+/*# sourceMappingURL=dashboard.css.map */

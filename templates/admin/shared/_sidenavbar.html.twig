@@ -1,0 +1,64 @@
+<ul id="sidenav-left" class="sidenav sidenav-fixed" style="transform: translateX(0px);">
+	{% if is_granted('ADMIN',app.user) %}
+	<li>
+		<a href="" class="logo-container">Admin<i class="material-icons left">spa</i>
+		</a>
+	</li>
+	
+	<li>
+		<a href="{{path('admin_dashboard')}}" class="logo-container">Dashboard<i class="material-icons left">dashboard</i>
+		</a>
+	</li>
+	<li class="">
+	
+			<ul class="collapsible list-side">
+
+				<li>
+					<div class="collapsible-header logo-container">
+						<i class="material-icons">note</i>Nouveautés</div>
+					<div class="collapsible-body">
+						<div class="collection">
+							<a href="{{path('admin_news')}}" class="collection-item flex">
+								<i class="material-icons">list</i>
+								Nouveautés List</a>
+							<a href="{{path('news_add')}}" class="collection-item  flex">
+								<i class="material-icons">create</i>
+								Create Nouveauté</a>
+
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="collapsible-header logo-container">
+						<i class="material-icons">collections</i>Category</div>
+					<div class="collapsible-body">
+						<div class="collection">
+							<a href="{{path('category_add')}}" class="collection-item flex">
+								<i class="material-icons">build</i>
+								Manage Category</a>
+
+
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="collapsible-header logo-container">
+						<i class="material-icons">people</i>User</div>
+					<div class="collapsible-body">
+						<div class="collection">
+							<a href="{{path('admin_user')}}" class="collection-item flex">
+								<i class="material-icons">list</i>
+								Users List</a>
+							<a href="{{path('admin_user_add')}}" class="collection-item  flex">
+								<i class="material-icons">create</i>
+								Create User</a>
+
+						</div>
+					</div>
+				</li>
+			</ul>
+		
+
+   </li>
+   {% endif %}
+</ul>

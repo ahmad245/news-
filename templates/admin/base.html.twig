@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+         
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+         
+         <link rel="stylesheet" href="/Resources/vendor/jquery/css/jquery-ui.structure.min.css"></link>
+             <link rel="stylesheet" href="/Resources/vendor/jquery/css/scrollbar/jquery.scrollbar.css"></link>
+        <link rel="stylesheet" href="/Resources/vendor/jquery/css/fancybox/jquery.fancybox.css"></link>
+       <link rel="stylesheet" href="/Resources/public/css/views/simplebar.css"></link>
+
+
+        
+     
+      
+         
+         
+     
+          {{ encore_entry_link_tags('app') }}
+          <link rel="stylesheet" href="/newsCss/news.css"></link>
+             {# <link rel="stylesheet" href="/Resources/materialize/css/materialize.css"></link> #}
+           
+           <style>
+            .postAdd{
+            position: fixed;
+            top: 80vh;
+            right: 2rem;
+            }
+           
+            .pl_240{
+           padding-left:240px;
+            }
+             .admin_navbar{
+                padding-left:0 !important;
+            }
+            .flex{
+                display:flex !important;
+               
+                align-items:center;
+            }
+            .flex i {
+                width: 2rem;
+                font-size: 1.6rem;
+                display: inline-block;
+                text-align: center;
+                margin-right: 1rem;
+               
+                }
+                .brand-logo{
+                    margin-left:1rem;
+                }
+            .list-side{
+                   padding-left: 1rem;
+            }    
+            .sidenav .logo-container {
+                padding: 0 16px;
+                height: 64px;
+                line-height: 64px;
+                font-size: 24px;
+                border-bottom: 1px solid rgba(0,0,0,0.2);
+                box-sizing: content-box;
+}
+ .sidenav .logo-container i{
+ color:#4db6ac;
+ }
+  	.mt_1{
+		         margin-top:1rem;
+	          }
+            </style>
+         
+        {% endblock %}
+    </head>
+    <body>
+       {# ////////////////////////////////////Menu////////////////////////////////////////////////// #}
+    {% block menu %}
+		<div id="display-sous-menu"></div>
+        <nav class="principale active ">
+	        {{ knp_menu_render('main',{
+                'allow_safe_labels': true,
+		        'rootClass': 'root',
+		        'listClass': 'list',
+		        'itemClass': 'list-item '
+    }) }}
+        </nav>
+    {% endblock %}
+   {# ////////////////////////////////////Menu////////////////////////////////////////////////// #}
+
+      {# ////////////////////////////////////NAVBAR////////////////////////////////////////////////// #}
+     <div class="admin_navbar">
+      {% include "admin/shared/navbar.html.twig" %}
+     </div>
+     {# ////////////////////////////////////NAVBAR////////////////////////////////////////////////// #}
+    {# {% include "admin/shared/_sidenavbar.html.twig" %} #}
+   
+        {% if app.user %}
+				<a href="{{path('news_add')}}" class="btn-floating btn-large waves-effect waves-light teal lighten-2 postAdd">
+					<i class="material-icons">add</i>
+				</a>
+			{% endif %}
+     <div class=" pl_240">
+        {% block body %}
+      
+        {% endblock %}
+       </div> 
+        {% block javascripts %}
+         <script src="/Resources/vendor/materialize/js/materialize.min.js"></script>
+         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+          {# <script src="/Resources/vendor/jquery/js/jquery-3.1.1.min.js"></script> 
+         
+         <script src="/Resources/vendor/jquery/js/masonry/masonry.pkgd.min.js"></script>
+         <script src="/Resources/public/js/jquery/jquery.modalalert.js"></script>
+
+         <script src="/Resources/vendor/jquery/js/jquery-ui.min.js"></script>
+       
+         <script src="/Resources/vendor/jquery/js/scrollbar/jquery.scrollbar.min.js"></script>
+         <script src="/Resources/vendor/jquery/js/fancybox/jquery.fancybox.min.js"></script>
+          <script src="/Resources/public/js/simplebar.js"></script>
+         <script src="/Resources/public/js/jquery/jquery.modalalert.js"></script>
+         <script src="/Resources/public/js/daqspinner.js"></script>
+         <script src="/Resources/vendor/moment/moment.fr.min.js"></script>
+         <script src="/Resources/vendor/simplePopup/simplePopup.js"></script>
+        
+         <script src="/Resources/public/js/nav.js"></script>
+         <script src="/Resources/public/js/checkbox.js"></script> #}
+         <script src="/Resources/vendor/jquery/js/jquery-3.1.1.min.js"></script> 
+          <script src="/Resources/vendor/jquery/js/masonry/masonry.pkgd.min.js"></script>
+         <script src="/Resources/public/js/jquery/jquery.modalalert.js"></script>
+
+         <script src="/Resources/vendor/jquery/js/jquery-ui.min.js"></script>
+         <script src="/Resources/vendor/jquery/js/select2/select2.min.js"></script>
+         <script src="/Resources/vendor/jquery/js/select2/i18n/fr.js"></script>
+         <script src="/Resources/vendor/jquery/js/tablesorter/js/jquery.tablesorter.combined.js"></script>
+         <script src="/Resources/vendor/jquery/js/tablesorter/js/jquery.tablesorter.init.js"></script>
+         <script src="/Resources/vendor/jquery/js/tablesorter/js/widgets/widget-columnSelector.min.js"></script>
+         <script src="/Resources/vendor/jquery/js/tablesorter/js/widgets/widget-output.min.js"></script>
+         <script src="/Resources/vendor/jquery/js/tablesorter/js/widgets/widget-math.min.js"></script>
+         <script src="/Resources/vendor/jquery/js/tablesorter/js/widgets/widget-alignChar.min.js"></script>
+         <script src="/Resources/vendor/jquery/js/tablesorter/js/widgets/widget-staticRow.min.js"></script>
+         <script src="/Resources/vendor/jquery/js/datetimepicker/jquery.datetimepicker.min.js"></script>
+         <script src="/Resources/vendor/jquery/js/autocomplete/jquery.autocomplete.min.js"></script>
+         <script src="/Resources/vendor/jquery/js/scrollbar/jquery.scrollbar.min.js"></script>
+         <script src="/Resources/vendor/jquery/js/fancybox/jquery.fancybox.min.js"></script>
+         <script src="/Resources/public/js/jquery/jquery.modalalert.js"></script>
+         <script src="/Resources/public/js/daqspinner.js"></script>
+         <script src="/Resources/vendor/moment/moment.fr.min.js"></script>
+         <script src="/Resources/vendor/simplePopup/simplePopup.js"></script>
+         <script src="/Resources/public/js/simplebar.js"></script>
+         <script src="/Resources/public/js/nav.js"></script>
+         <script src="/Resources/public/js/checkbox.js"></script>
+
+         <script src="/Resources/public/js/common.js"></script>
+
+
+	    <script>
+
+           document.addEventListener('DOMContentLoaded', function() {
+
+
+                   var filter = document.querySelectorAll('.collapsible');
+                 var instancesfilter = M.Collapsible.init(filter, {});
+                var elems = document.querySelectorAll('select');
+                var instances = M.FormSelect.init(elems, {});
+
+                var materialboxed = document.querySelectorAll('.materialboxed');
+                var materialboxedinstances = M.Materialbox.init(materialboxed, {});
+
+                var modal = document.querySelectorAll('.modal');
+                var modalinstances = M.Modal.init(modal, {});
+
+                var dropdown = document.querySelectorAll('.dropdown-trigger');
+				var dropdowninstances = M.Dropdown.init(dropdown, {});
+
+                 var datepicker = document.querySelectorAll('.datepicker');
+                 var datepickerinstances = M.Datepicker.init(datepicker, {
+                     showClearBtn:true
+                      });
+             
+                  {% if app.user %}
+                   let url ="{{ path('notification') }}";
+                        const fetchData = () => {
+                            axios.get(url).then((response) => {
+                                    document.getElementById('notification-count').innerText = response.data.count[1];
+                                    console.log(response.data.count[1])
+                                        {# setTimeout(() => {
+                                        	fetchData();
+                                        }, 500) #}
+                                }).catch((err) => {
+                                console.log(err);
+                                })
+                           } 
+				          fetchData();
+                 
+                 {% endif %}
+          });
+
+        </script>
+
+        
+     
+ 
+        {% endblock %}
+    </body>
+</html>

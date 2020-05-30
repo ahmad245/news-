@@ -1,0 +1,139 @@
+{% extends 'admin/base.html.twig' %}
+{% form_theme form _self %}
+{% block title %}Hello NewsController!
+{% endblock %}
+
+{% block body %}
+	<div class="row">
+		<div class="col s8 offset-s2">
+			<div class="card">
+				<div class="card-content">
+					{{form_start(form, {attr: {'id': 'tinymce_form', 'data-newsId': news.id}})}}
+					{{form_widget(form)}}
+					<div class="collection hide"></div>
+					 <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                             <i class="material-icons right">send</i>
+                       </button>
+					{{form_end(form)}}
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block checkbox_row -%}
+    <div class="row {% if not valid %} has-error{% endif %}">
+        {{- form_widget(form) -}}
+        {{- form_label(form) -}}
+        {{- form_errors(form) -}}
+    </div>
+{%- endblock checkbox_row %}
+
+{% block checkbox_widget -%}
+{%- endblock checkbox_widget %}
+   {# Checkbox label is raw here #}
+{%- block checkbox_label -%}
+    {% if label is not same as(false) -%}
+        {% if not compound -%}
+            {% set label_attr = label_attr|merge({'for': id}) %}
+        {%- endif -%}
+        {% if required -%}
+            {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' required')|trim}) %}
+        {%- endif -%}
+        {% if label is empty -%}
+            {%- if label_format is not empty -%}
+                {% set label = label_format|replace({
+                '%name%': name,
+                '%id%': id,
+                }) %}
+            {%- else -%}
+                {% set label = name|humanize %}
+            {%- endif -%}
+        {%- endif -%}
+         <p>
+        <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
+                {# {% block checkbox_widget -%}
+                
+                   <input type="checkbox" class="filled-in"{{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+                 
+               {%- endblock checkbox_widget %} #}
+               <input type="checkbox" class="filled-in"{{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+              <span> {{ translation_domain is same as(false) ? label|raw : label|trans({}, translation_domain)|raw }} </span>
+        </label>
+        </p>
+    {%- endif -%}
+{%- endblock -%}
+
+ {# ///////////////////////////////////////////////////// #}
+
+
+{% block javascripts %}
+{{parent()}}
+<script src="https://cdn.tiny.cloud/1/ha2h71n7td0rqk5dp70n7tdd4vk098qpqeojxeytk7mr2de6/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script >
+let form = document.querySelector('#tinymce_form');
+let newsId=form.dataset.newsId;
+tinymce.init({
+  selector: '#news_content',
+  content_css: '//www.tiny.cloud/css/codepen.min.css',
+  plugins: 'image code',
+  toolbar: 'undo redo | link image | code',
+  /* enable title field in the Image dialog*/
+  image_title: true,
+  /* enable automatic uploads of images represented by blob or data URIs*/
+  automatic_uploads: true,
+  /*
+    URL of our upload handler (for more details check: https://www.tiny.cloud/docs/configure/file-image-upload/#images_upload_url)
+    images_upload_url: 'postAcceptor.php',
+	
+    here we add custom filepicker only to Image dialog
+  */
+   images_upload_url: '/attachment' ,
+    image_advtab: true,
+   
+  file_picker_types: 'image',
+  powerpaste_keep_unsupported_src: true,
+  /* and here's our custom image picker*/
+  file_picker_callback: function (cb, value, meta) {
+    var input = document.createElement('input');
+    input.setAttribute('type', 'file');
+    input.setAttribute('accept', 'image/*');
+
+    /*
+      Note: In modern browsers input[type="file"] is functional without
+      even adding it to the DOM, but that might not be the case in some older
+      or quirky browsers like IE, so you might want to add it to the DOM
+      just in case, and visually hide it. And do not forget do remove it
+      once you do not need it anymore.
+    */
+
+    input.onchange = function () {
+      var file = this.files[0];
+
+      var reader = new FileReader();
+      reader.onload = function () {
+        /*
+          Note: Now we need to register the blob in TinyMCEs image blob
+          registry. In the next release this part hopefully won't be
+          necessary, as we are looking to handle it internally.
+        */
+        var id = 'blobid' + (new Date()).getTime();
+        var blobCache =  tinymce.activeEditor.editorUpload.blobCache;
+        var base64 = reader.result.split(',')[1];
+        var blobInfo = blobCache.create(id, file, base64);
+        blobCache.add(blobInfo);
+
+        /* call the callback and populate the Title field with the file name */
+        cb(blobInfo.blobUri(), { title: file.name });
+      };
+      reader.readAsDataURL(file);
+    };
+
+    input.click();
+  }
+});
+
+
+</script>
+{% endblock %}

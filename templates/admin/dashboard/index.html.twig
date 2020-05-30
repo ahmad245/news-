@@ -1,0 +1,68 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Hello AdminAccountController!
+{% endblock %}
+
+{% block stylesheets %}
+	{{parent()}}
+	{# <link rel="stylesheet" href="/account/login.css"> #}
+   
+	<style>
+   .dashboard_icon{
+    font-size: 10rem !important;
+    width: 100%;
+    text-align: center;
+    color:#4db6ac;
+}
+    </style>
+{% endblock %}
+
+{% block body %}
+
+  <div class="row dashboard">
+    <div class="col s12 m6">
+      <div class="card">
+        <div class="card-image">
+           <i class="material-icons dashboard_icon ">people</i>
+         
+          <a class="btn-floating halfway-fab waves-effect waves-light "><i class="material-icons">add</i></a>
+        </div>
+        <div class="card-content">
+          <p>Le nombre d'utilisateurs sont enregistrés {{stats.users}}</p>
+        </div>
+      </div>
+    </div>
+
+     <div class="col s12 m6">
+      <div class="card">
+        <div class="card-image">
+           <i class="material-icons dashboard_icon ">collections</i>
+         
+          <a class="btn-floating halfway-fab waves-effect waves-light "><i class="material-icons">add</i></a>
+        </div>
+        <div class="card-content">
+          <p>Le nombre de catégories est écrit{{stats.categories}}</p>
+        </div>
+      </div>
+    </div>
+  
+     <div class="col s12 m6">
+      <div class="card">
+        <div class="card-image">
+           <i class="material-icons dashboard_icon ">note</i>
+         
+          <a class="btn-floating halfway-fab waves-effect waves-light "><i class="material-icons">add</i></a>
+        </div>
+        <div class="card-content">
+          <p>Le nombre de nouvelles sont écrites {{stats.news}}</p>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+          
+
+{%- endblock -%}
+
+
